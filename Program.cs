@@ -26,7 +26,7 @@
             if (importo > 0)
             {
                 saldo += importo;
-                Console.WriteLine($"Versamento di {importo:C} effettuato con successo.");
+                Console.WriteLine($"Versamento di {importo:C} avvenuto con successo.");
             }
             else
             {
@@ -39,7 +39,7 @@
             if (importo > 0 && importo <= saldo)
             {
                 saldo -= importo;
-                Console.WriteLine($"Prelevamento di {importo:C} effettuato con successo.");
+                Console.WriteLine($"Prelevamento di {importo:C} avvenuto con successo.");
             }
             else
             {
@@ -53,7 +53,7 @@
     {
         static void Main(string[] args)
         {
-            ContoCorrente mioConto = null;
+            ContoCorrente xmePlus = null;
 
             while (true)
             {
@@ -73,18 +73,18 @@
                         string nomeCliente = Console.ReadLine();
                         Console.WriteLine("Inserisci il numero del conto:");
                         string numeroConto = Console.ReadLine();
-                        mioConto = new ContoCorrente(nomeCliente, numeroConto);
+                        xmePlus = new ContoCorrente(nomeCliente, numeroConto);
                         Console.WriteLine("Conto aperto con successo!");
                         break;
 
                     case "2":
-                        if (mioConto != null)
+                        if (xmePlus != null)
                         {
                             Console.WriteLine("Inserisci l'importo da versare:");
                             double importoVersamento;
                             if (double.TryParse(Console.ReadLine(), out importoVersamento))
                             {
-                                mioConto.Versamento(importoVersamento);
+                                xmePlus.Versamento(importoVersamento);
                             }
                             else
                             {
@@ -98,13 +98,13 @@
                         break;
 
                     case "3":
-                        if (mioConto != null)
+                        if (xmePlus != null)
                         {
                             Console.WriteLine("Inserisci l'importo da prelevare:");
                             double importoPrelevamento;
                             if (double.TryParse(Console.ReadLine(), out importoPrelevamento))
                             {
-                                mioConto.Prelevamento(importoPrelevamento);
+                                xmePlus.Prelevamento(importoPrelevamento);
                             }
                             else
                             {
@@ -118,9 +118,9 @@
                         break;
 
                     case "4":
-                        if (mioConto != null)
+                        if (xmePlus != null)
                         {
-                            mioConto.VisualizzaInfoConto();
+                            xmePlus.VisualizzaInfoConto();
                         }
                         else
                         {
